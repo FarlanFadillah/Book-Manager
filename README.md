@@ -136,8 +136,6 @@ http://localhost:your_server_port
 
 ---
 
-````
-
 # 🌐 How to Use the REST API
 
 ## 📌 Base URL
