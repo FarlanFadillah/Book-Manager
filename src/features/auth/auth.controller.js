@@ -7,7 +7,7 @@ const login = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        mesg: "You have successfully logged in.",
+        message: "You have successfully logged in.",
         token,
     });
 });

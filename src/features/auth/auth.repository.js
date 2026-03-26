@@ -1,4 +1,5 @@
 const { User } = require("../../models");
+const { ExpressError } = require("../../utils/error");
 
 async function getByUsername(username) {
     try {
@@ -8,7 +9,7 @@ async function getByUsername(username) {
             },
         });
     } catch (error) {
-        throw error;
+        throw new ExpressError(error.message);
     }
 }
 
