@@ -1,4 +1,4 @@
-const { User } = require("../../models");
+const { User } = require("../../db/models");
 const { ExpressError } = require("../../utils/error");
 
 async function getByUsername(username) {

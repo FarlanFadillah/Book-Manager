@@ -1,11 +1,11 @@
-require("../env");
+require("./configs/env");
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const { globalErrorHandler } = require("./middlewares/error.middlewares");
 
 // Routes
-const authRouter = require("./features/auth/auth.routes");
+const authRouter = require("./modules/auth/auth.routes");
 
 const PORT = process.env.PORT || 3030;
 
