@@ -301,12 +301,11 @@ Response:
         }
     ],
     "meta": {
-        "page": 1, // current page
-        "total_count": 17, // total data
-        "total_page": 6, // total pages
-        "per_page": 3, // limit per page
+        "page": 1,
+        "total_count": 17,
+        "total_page": 6,
+        "per_page": 3,
         "links": {
-            //  links for page instructions
             "next": "/api/v1/books?page=2&limit=3&",
             "self": "/api/v1/books?page=1&limit=3&",
             "prev": null,
