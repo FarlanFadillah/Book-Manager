@@ -5,7 +5,8 @@ const cors = require("cors");
 const { globalErrorHandler } = require("./middlewares/error.middlewares");
 
 // Routes
-const authRouter = require("./modules/auth/auth.routes");
+const authRoutes = require("./modules/auth/auth.routes");
+const bookRoutes = require("./modules/books/book.routes");
 
 const PORT = process.env.PORT || 3030;
 
@@ -16,7 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors());
 
-app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/books", bookRoutes);
 
 app.use(globalErrorHandler);
 

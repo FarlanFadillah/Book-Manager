@@ -3,6 +3,12 @@ const crypt = require("../../utils/crypt");
 const jwt = require("../../utils/jwt");
 const { ExpressError } = require("../../utils/error");
 
+/**
+ *
+ * @param {String} username
+ * @param {String} password
+ * @returns JWT token generated for authorization
+ */
 async function login(username, password) {
     try {
         const user = await authRepo.getByUsername(username);

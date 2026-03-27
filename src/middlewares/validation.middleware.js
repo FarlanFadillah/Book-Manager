@@ -12,7 +12,11 @@ function validate(req, res, next) {
     const errors = {};
     result.errors.map((data) => (errors[data.path] = data.msg));
 
-    res.status(200).json({ status: false, msg: "validation failed", errors });
+    res.status(200).json({
+        status: false,
+        message: "validation failed",
+        errors,
+    });
 }
 
 module.exports = {

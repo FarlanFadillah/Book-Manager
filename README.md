@@ -112,6 +112,18 @@ npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all
 ```
 
+As the seeding process progresses, it will create a user and store it in the database.
+You can use these credentials to log in and obtain a JWT token,
+allowing you to access the book route.
+You can change these credentials by changing the seed file inside the ./src/db folder.
+
+```json
+{
+    "username": "admin",
+    "password": "12345"
+}
+```
+
 ### 5️⃣ Start the Server
 
 ```bash
@@ -141,7 +153,7 @@ http://localhost:your_server_port
 ## 📌 Base URL
 
 ```bash
-http://localhost:your_server_port/api/v1****
+http://localhost:your_server_port/api/v1
 ```
 
 ---
@@ -159,7 +171,7 @@ Before accessing protected routes, you need to authenticate.
 ```json
 {
     "username": "admin",
-    "password": "123456"
+    "password": "12345"
 }
 ```
 
@@ -182,6 +194,144 @@ For endpoints that require authentication, include the JWT token in the header:
 ```
 Authorization: Bearer your_jwt_token_here
 ```
+
+## :book: 2. Books
+
+### Adding a Book
+
+**POST** `/books`
+
+```json
+{
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "year": 1987
+}
+```
+
+Response:
+
+```json
+{
+    "success": true,
+    "message": "Book added successfully",
+    "data": {
+        "id": 17,
+        "title": "Norwegian Wood",
+        "author": "Haruki Murakami",
+        "year": 1987
+    }
+}
+```
+
+### Update a Book
+
+**PUT** `/books/:id`
+
+```json
+{
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "year": 1987
+}
+```
+
+Response:
+
+```json
+{
+    "success": true,
+    "message": "Book updated successfully"
+}
+```
+
+### Delete a Book
+
+**DELETE** `/books/:id`
+
+Response:
+
+```json
+{
+    "success": true,
+    "message": "Book deleted successfully"
+}
+```
+
+### Get a Book by ID
+
+**GET** `/books/:id`
+
+Response:
+
+```json
+{
+    "success": true,
+    "data": {
+        "id": 17,
+        "title": "1Q84",
+        "author": "Haruki Murakami",
+        "year": 2009
+    }
+}
+```
+
+### Get a list of Book
+
+**GET** `/books?page=1&limit=3`
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "title": "1984",
+            "author": "George Orwell",
+            "year": 1949
+        },
+        {
+            "id": 2,
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "year": 1925
+        },
+        {
+            "id": 3,
+            "title": "The Alchemist",
+            "author": "Paulo Coelho",
+            "year": 1988
+        }
+    ],
+    "meta": {
+        "page": 1, // current page
+        "total_count": 17, // total data
+        "total_page": 6, // total pages
+        "per_page": 3, // limit per page
+        "links": {
+            //  links for page instructions
+            "next": "/api/v1/books?page=2&limit=3&",
+            "self": "/api/v1/books?page=1&limit=3&",
+            "prev": null,
+            "last": "/api/v1/books?page=6&limit=3&"
+        }
+    }
+}
+```
+
+for filtering you can use one or more of the query parameters, such as :
+title, author, yearFrom, yearTo
+
+List of books published from 1925 to 2000
+**GET** `/books?page=1&limit=10&yearFrom=1925&yearTo=2000`
+
+List of books by author F. Scott Fitzgerald
+**GET** `/books?page=1&limit=10&author=F. Scott Fitzgerald`
+
+List of books with titles that contain the word "The"
+**GET** `/books?page=1&limit=10&title=The`
+
+You can also combine all of these query parameters to get more specific books.
 
 # 📖 API Design Principles
 
