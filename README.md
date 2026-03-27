@@ -8,7 +8,7 @@ This project is built using a **feature-based architecture**, where each busines
 
 ### 🧱 Architecture: Feature-Based
 
-Instead of separating by technical layer globally (controllers, services, routes, etc.), this project organizes code by **feature/domain**:
+Instead of separating by technical layer globally (controllers, services, routes, etc.), this project organizes code by **feature/modules**:
 
 ```
 /src
