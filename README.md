@@ -159,7 +159,7 @@ Before accessing protected routes, you need to authenticate.
 ```json
 {
     "username": "admin",
-    "password": "123456"
+    "password": "12345"
 }
 ```
 
