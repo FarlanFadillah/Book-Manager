@@ -15,14 +15,12 @@ Instead of separating by technical layer globally (controllers, services, routes
     /db
     /middlewares
     /modules
-        /clients
-            client.controller.js
-            client.service.js
-            client.repository.js
-            client.route.js
-        /alas-hak
-        /address
         /auth
+        /books
+            book.controller.js
+            book.service.js
+            book.repository.js
+            book.route.js
 ```
 
 Each feature encapsulates:
@@ -64,7 +62,6 @@ This approach:
 - Proper async handling
 - Repository & service layer separation
 - Clean error propagation pattern
-- Real-world relational database modeling
 
 ## ⚙️ How to Run the Project
 
