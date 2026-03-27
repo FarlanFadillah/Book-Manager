@@ -319,12 +319,15 @@ for filtering you can use one or more of the query parameters, such as :
 title, author, yearFrom, yearTo
 
 List of books published from 1925 to 2000
+
 **GET** `/books?page=1&limit=10&yearFrom=1925&yearTo=2000`
 
 List of books by author F. Scott Fitzgerald
+
 **GET** `/books?page=1&limit=10&author=F. Scott Fitzgerald`
 
 List of books with titles that contain the word "The"
+
 **GET** `/books?page=1&limit=10&title=The`
 
 You can also combine all of these query parameters to get more specific books.
