@@ -9,25 +9,25 @@ const addBookValidationRules = [
         .withMessage("Invalid year value"),
 ];
 
-const idValidationRules = [validator.numericalRequired("id")];
+const idValidationRules = [validator.numericalRequired("id", "param")];
 
 const paginationValidationRules = [
-    validator.numericalRequired("page"),
-    validator.numericalOptional("limit"),
+    validator.numericalRequired("page", "query"),
+    validator.numericalOptional("limit", "query"),
 ];
 const filtersValidationRules = [
-    validator.stringOptional("title"),
-    validator.stringOptional("author"),
+    validator.stringOptional("title", "query"),
+    validator.stringOptional("author", "query"),
     validator
-        .numericalOptional("year")
+        .numericalOptional("year", "query")
         .isLength({ min: 1, max: 4 })
         .withMessage("Invalid year value"),
     validator
-        .numericalOptional("yearFrom")
+        .numericalOptional("yearFrom", "query")
         .isLength({ min: 1, max: 4 })
         .withMessage("Invalid year value"),
     validator
-        .numericalOptional("yearTo")
+        .numericalOptional("yearTo", "query")
         .isLength({ min: 1, max: 4 })
         .withMessage("Invalid year value"),
 ];

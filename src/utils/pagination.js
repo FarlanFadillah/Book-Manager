@@ -66,7 +66,7 @@ function paginationMetadata(endpoint, currentpage, limit, total, additions) {
 function genPaginationEndpoint(name, currentpage, limit, additions) {
     return (
         `/api/v1/${name}?page=${currentpage}&limit=${limit}` +
-        (additions ? `&${additions.join("&")}` : "")
+        (additions.length > 0 ? `&${additions.join("&")}` : "")
     );
 }
 
